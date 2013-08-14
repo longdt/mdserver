@@ -1,5 +1,7 @@
 package com.solt.mdseever.cache;
 
+import java.io.FileNotFoundException;
+
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.solt.mdseever.config.ConfigurationManager;
@@ -20,7 +22,7 @@ public class CacheManagerImpl implements CacheManager {
 	}
 
 	@Override
-	public PieceCache getCache(FileID fileId, String filePath, int pieceSize, long fileOffset) {
+	public PieceCache getCache(FileID fileId, String filePath, int pieceSize, long fileOffset) throws FileNotFoundException {
 		return new PieceCacheImpl(cache, lockProvider, fileId, filePath, pieceSize, fileOffset);
 	}
 

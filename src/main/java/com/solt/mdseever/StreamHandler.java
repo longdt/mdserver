@@ -1,5 +1,7 @@
 package com.solt.mdseever;
 
+import java.io.FileNotFoundException;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
@@ -28,7 +30,7 @@ public class StreamHandler extends SimpleChannelInboundHandler<Command> {
 			get(ctx, (GetCommand) cmd);
 			break;
 		case Command.INIT_STREAM:
-			initStream((InitStreamCommand) cmd);
+			initStream(ctx, (InitStreamCommand) cmd);
 			break;
 		default:
 			break;
@@ -36,7 +38,7 @@ public class StreamHandler extends SimpleChannelInboundHandler<Command> {
 	}
 	
 	private void get(ChannelHandlerContext ctx, GetCommand cmd) {
-		if (filePath == null) {
+		if (cache == null) {
 			ctx.writeAndFlush(Result.MISSING_INIT_STREAM);
 			return;
 		}
@@ -45,15 +47,21 @@ public class StreamHandler extends SimpleChannelInboundHandler<Command> {
 			ctx.writeAndFlush(new Result(pieceData, cmd.getOffset(), cmd.getLength()));
 		} catch (Exception e) {
 			e.printStackTrace();
+			ctx.writeAndFlush(Result.INVALID);
 		}
 	}
 
-	private void initStream(InitStreamCommand isc) {
+	private void initStream(ChannelHandlerContext ctx, InitStreamCommand isc) {
 		fileId = isc.getFileId();
 		filePath = isc.getFilePath();
 		pieceSize = isc.getPieceSize();
 		fileOffset = isc.getFileOffset();
-		cache = cacheManager.getCache(fileId, filePath, pieceSize, fileOffset);
+		try {
+			cache = cacheManager.getCache(fileId, filePath, pieceSize, fileOffset);
+			ctx.writeAndFlush(Result.OK);
+		} catch (FileNotFoundException e) {
+			ctx.writeAndFlush(Result.FILE_NOT_FOUND);
+		}
 	}
 	
 	@Override

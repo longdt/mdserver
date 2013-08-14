@@ -1,6 +1,7 @@
 package com.solt.mdseever.cache;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel.MapMode;
@@ -25,11 +26,14 @@ public class PieceCacheImpl implements PieceCache {
 	
 	public PieceCacheImpl(Cache<PieceID, byte[]> cache,
 			StripedLockProvider lockProvider, FileID fileId, String filePath,
-			int pieceSize, long fileOffset) {
+			int pieceSize, long fileOffset) throws FileNotFoundException {
 		this.cache = cache;
 		this.lockProvider = lockProvider;
 		this.fileId = fileId;
 		this.file = new File(ROOT_DIR, filePath);
+		if (!file.isFile()) {
+			throw new FileNotFoundException(file.getAbsolutePath() + " not found");
+		}
 		this.pieceSize = pieceSize;
 		this.fileOffset = fileOffset;
 		loader = new CacheLoaderImpl();
