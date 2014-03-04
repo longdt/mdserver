@@ -56,7 +56,7 @@ public class PieceCacheImpl implements PieceCache {
 
 		@Override
 		public byte[] load(PieceID pieceId) throws Exception {
-			long start = pieceSize * pieceId.getIndex() - fileOffset;
+			long start = ((long)pieceSize) * pieceId.getIndex() - fileOffset;
 			long end = start + pieceSize;
 			int offset = 0;
 			if (start < 0) {
