@@ -1,18 +1,18 @@
-package com.solt.mdseever;
+package com.solt.mdserver;
 
 import java.io.FileNotFoundException;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-import com.solt.mdseever.cache.CacheManager;
-import com.solt.mdseever.cache.CacheManagerImpl;
-import com.solt.mdseever.cache.PieceCache;
-import com.solt.mdseever.protocol.Command;
-import com.solt.mdseever.protocol.FileID;
-import com.solt.mdseever.protocol.GetCommand;
-import com.solt.mdseever.protocol.InitStreamCommand;
-import com.solt.mdseever.protocol.Result;
+import com.solt.mdserver.cache.CacheManager;
+import com.solt.mdserver.cache.CacheManagerImpl;
+import com.solt.mdserver.cache.PieceCache;
+import com.solt.mdserver.protocol.Command;
+import com.solt.mdserver.protocol.FileID;
+import com.solt.mdserver.protocol.GetCommand;
+import com.solt.mdserver.protocol.InitStreamCommand;
+import com.solt.mdserver.protocol.Result;
 
 public class StreamHandler extends SimpleChannelInboundHandler<Command> {
 	private static CacheManager cacheManager = new CacheManagerImpl();

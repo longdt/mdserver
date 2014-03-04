@@ -1,4 +1,4 @@
-package com.solt.mdseever;
+package com.solt.mdserver;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -8,10 +8,10 @@ import io.netty.handler.codec.CorruptedFrameException;
 import java.nio.charset.Charset;
 import java.util.List;
 
-import com.solt.mdseever.protocol.Command;
-import com.solt.mdseever.protocol.FileID;
-import com.solt.mdseever.protocol.GetCommand;
-import com.solt.mdseever.protocol.InitStreamCommand;
+import com.solt.mdserver.protocol.Command;
+import com.solt.mdserver.protocol.FileID;
+import com.solt.mdserver.protocol.GetCommand;
+import com.solt.mdserver.protocol.InitStreamCommand;
 
 public class CommandDecoder extends ByteToMessageDecoder {
 

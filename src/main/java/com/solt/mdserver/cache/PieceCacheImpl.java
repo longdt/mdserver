@@ -1,4 +1,4 @@
-package com.solt.mdseever.cache;
+package com.solt.mdserver.cache;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,8 +7,8 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel.MapMode;
 
 import com.google.common.cache.Cache;
-import com.solt.mdseever.config.ConfigurationManager;
-import com.solt.mdseever.protocol.FileID;
+import com.solt.mdserver.config.ConfigurationManager;
+import com.solt.mdserver.protocol.FileID;
 
 public class PieceCacheImpl implements PieceCache {
 	private static String ROOT_DIR;

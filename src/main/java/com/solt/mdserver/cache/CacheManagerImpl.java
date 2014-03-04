@@ -1,11 +1,11 @@
-package com.solt.mdseever.cache;
+package com.solt.mdserver.cache;
 
 import java.io.FileNotFoundException;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.solt.mdseever.config.ConfigurationManager;
-import com.solt.mdseever.protocol.FileID;
+import com.solt.mdserver.config.ConfigurationManager;
+import com.solt.mdserver.protocol.FileID;
 
 public class CacheManagerImpl implements CacheManager {
 	private static final long DEFAULT_CACHE_SIZE = 1000;

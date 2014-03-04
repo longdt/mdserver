@@ -1,11 +1,11 @@
-package com.solt.mdseever;
+package com.solt.mdserver;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
-import com.solt.mdseever.protocol.Result;
+import com.solt.mdserver.protocol.Result;
 
 @Sharable
 public class ResultEncoder extends MessageToByteEncoder<Result> {

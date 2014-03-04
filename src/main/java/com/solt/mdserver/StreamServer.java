@@ -1,6 +1,6 @@
-package com.solt.mdseever;
+package com.solt.mdserver;
 
-import com.solt.mdseever.config.ConfigurationManager;
+import com.solt.mdserver.config.ConfigurationManager;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

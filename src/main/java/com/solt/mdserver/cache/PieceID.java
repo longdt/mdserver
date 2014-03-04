@@ -1,6 +1,6 @@
-package com.solt.mdseever.cache;
+package com.solt.mdserver.cache;
 
-import com.solt.mdseever.protocol.FileID;
+import com.solt.mdserver.protocol.FileID;
 
 public class PieceID {
 	private FileID fileId;

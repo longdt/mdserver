@@ -1,4 +1,4 @@
-package com.solt.mdseever.protocol;
+package com.solt.mdserver.protocol;
 
 public class GetCommand extends Command {
 	private int pieceIdx;

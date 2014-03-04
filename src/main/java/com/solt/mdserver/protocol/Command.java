@@ -1,4 +1,4 @@
-package com.solt.mdseever.protocol;
+package com.solt.mdserver.protocol;
 
 public abstract class Command {
 	public static final byte INIT_STREAM = 1;

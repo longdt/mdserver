@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.solt.mdseever.config;
+package com.solt.mdserver.config;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

@@ -1,4 +1,4 @@
-package com.solt.mdseever.protocol;
+package com.solt.mdserver.protocol;
 
 public class Result {
 	public static final byte STATUS_OK = 0;

@@ -1,4 +1,4 @@
-package com.solt.mdseever.cache;
+package com.solt.mdserver.cache;
 
 public class StripedLockProvider {
 	private final Object[] locks;

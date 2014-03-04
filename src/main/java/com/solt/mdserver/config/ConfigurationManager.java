@@ -1,4 +1,4 @@
-package com.solt.mdseever.config;
+package com.solt.mdserver.config;
 
 import java.io.FileReader;
 import java.io.FileWriter;
